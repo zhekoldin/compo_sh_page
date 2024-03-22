@@ -10,7 +10,7 @@
     ></default-input>
     <default-input
         class="form__input"
-        v-model="post.description"
+        v-model="post.body"
     ></default-input>
     <default-button
         class="form__button"
@@ -30,7 +30,7 @@ export default {
     return {
       post: {
         title: "",
-        description: ""
+        body: ""
       }
     }
   },
@@ -39,16 +39,16 @@ export default {
       this.post = {
         id: Date.now(),
         title: this.post.title,
-        description: this.post.description
+        body: this.post.body
       }
       this.$emit("create_post", this.post)
       this.post = {
         id: 1,
         title: "",
-        description: "",
+        body: "",
       }
     },
-  }
+  },
 }
 </script>
 
