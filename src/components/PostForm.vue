@@ -1,5 +1,31 @@
+<template>
+  <form
+      @submit.prevent
+      class="form"
+  >
+    <div class="form__title">Данные для нового поста:</div>
+    <default-input
+        class="form__input"
+        v-model="post.title"
+    ></default-input>
+    <default-input
+        class="form__input"
+        v-model="post.description"
+    ></default-input>
+    <default-button
+        class="form__button"
+        @click="createPost"
+    >
+      Создать
+    </default-button>
+  </form>
+</template>
+
 <script>
+import DefaultInput from "@/components/storyBook/DefaultInput.vue";
+
 export default {
+  components: {DefaultInput},
   data() {
     return {
       post: {
@@ -26,52 +52,27 @@ export default {
 }
 </script>
 
-<template>
-  <form @submit.prevent>
-    <h4>Данные для нового поста:</h4>
-    <input
-        v-model="post.title"
-        class="input"
-        type="text"
-        placeholder="Название"
-    >
-    <input
-        v-model="post.description"
-        class="input"
-        type="text"
-        placeholder="Описание"
-    >
-    <button class="button"
-            @click="createPost"
-    >
-      Создать
-    </button>
-  </form>
-</template>
-
 <style scoped>
-form {
+.form {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
 
-h4 {
+.form__title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
   margin-bottom: 10px;
 }
 
-.input {
-  border: 1px solid teal;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-}
-
-.button {
-  cursor: pointer;
+.form__button {
   align-self: flex-end;
-  padding: 15px;
-  background: none;
-  color: teal;
-  border: 1px solid teal;
 }
+
+.form__input {
+
+  margin-bottom: 10px;
+}
+
 </style>

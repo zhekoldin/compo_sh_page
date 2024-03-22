@@ -1,24 +1,23 @@
 <template>
-  <div class="post" v-for="post in posts" :key="post.id">
-    <div class="post__info">
-      <div><strong>Название: </strong>{{ post.title}}</div>
-      <div><strong>Описание: </strong>{{post.description}}</div>
-    </div>
-    <div class="post__buttons">
-      <button
-          class="button post__button"
-          @click="() => deletePost(post.id)"
-      >
-        удалить
-      </button>
-    </div>
+  <div v-if="post_list.length > 0">
+    <post-item
+        v-for="post in post_list"
+        :key="post.id"
+        :post="post"
+        @delete_post="deletePost"
+    />
+  </div>
+  <div v-else>
+    <h2>Список постов пустой</h2>
   </div>
 </template>
 
 <script>
+import PostItem from "@/components/PostItem.vue";
 export default {
+  components: {PostItem},
   props: {
-    posts: {
+    post_list: {
       type: Array,
       required: true,
     }
@@ -28,32 +27,10 @@ export default {
       this.$emit("delete_post", id)
     }
   }
+
 }
 </script>
 
 <style scoped>
-.post {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px;
-  border: 2px solid teal;
-  margin-bottom: 15px;
-}
 
-.post__info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.post__buttons {
-  display: flex;
-  align-self: flex-end;
-  align-items: center;
-  justify-content: center;
-}
-
-.post__button {
-  border: 1px solid teal;
-}
 </style>

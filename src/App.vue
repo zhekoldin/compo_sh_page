@@ -4,7 +4,7 @@
         @create_post="createPost"
     />
     <post-list
-        :posts="post_list"
+        :post_list="post_list"
         @delete_post="deletePost"
     />
   </div>
