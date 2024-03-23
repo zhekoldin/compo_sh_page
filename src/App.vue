@@ -84,6 +84,9 @@ export default {
   computed: {
     getSortedPostList() {
       return [...this.post_list].sort((post_1, post_2) => {
+        if (this.selectedSort === "id") {
+          return post_2[this.selectedSort] - post_1[this.selectedSort]
+        }
         return post_1[this.selectedSort]?.localeCompare(post_2[this.selectedSort])
       })
     }
