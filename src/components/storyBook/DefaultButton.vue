@@ -1,21 +1,29 @@
 <script>
+import "/css/index.css"
 export default {
-  name: "DefaultButton"
+  name: "DefaultButton",
+  props: {
+    button_text: String,
+    state: String
+  }
 }
 </script>
 
 <template>
-  <button class="button">
+  <div class="button">
     <slot></slot>
-  </button>
+    {{ button_text }}
+  </div>
 </template>
 
 <style scoped>
 .button {
   cursor: pointer;
-  padding: 15px;
-  background: none;
-  color: teal;
-  border: 1px solid teal;
+  border-radius: 8px;
+  padding: 16px 24px 16px 24px;
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 14px;
+  line-height: 16px;
 }
 </style>

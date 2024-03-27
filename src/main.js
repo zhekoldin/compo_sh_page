@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import storyBook from "@/components/storyBook";
-import UI from "@/components/UI"
 
 const app = createApp(App)
 const addComponent = (component_list) => {
@@ -10,6 +9,6 @@ const addComponent = (component_list) => {
     })
 }
 
-addComponent([...storyBook, ...UI])
+addComponent([...storyBook])
 
 app.mount('#app')
