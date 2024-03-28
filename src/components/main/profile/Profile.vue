@@ -13,10 +13,18 @@ export default {
 </script>
 
 <template>
-  <profile-top></profile-top>
-  <profile-bottom></profile-bottom>
+  <div class="profile">
+    <profile-top></profile-top>
+    <profile-bottom></profile-bottom>
+  </div>
 </template>
 
 <style scoped>
-
+.profile {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0 24px;
+}
 </style>

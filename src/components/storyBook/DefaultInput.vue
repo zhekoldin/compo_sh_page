@@ -2,7 +2,11 @@
 export default {
   name: "DefaultInput",
   props: {
-    modelValue: [String, Number]
+    modelValue: [String, Number],
+    placeholder: {
+      type: String,
+      required: true
+    }
   },
   methods: {
     updateInput(event) {
@@ -18,13 +22,16 @@ export default {
       @input="updateInput"
       class="input"
       type="text"
-      placeholder="Название"
+      :placeholder="placeholder"
   >
 </template>
 
 <style scoped>
 .input {
-  border: 1px solid teal;
-  padding: 10px 15px;
+  outline: none;
+  border: none;
+  height: 32px;
+  color: var(--black);
+
 }
 </style>
