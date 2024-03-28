@@ -3,27 +3,38 @@ import "/src/css/index.css"
 export default {
   name: "DefaultButton",
   props: {
-    button_text: String,
-    state: String
+    class_list: Array
+  },
+  computed: {
+    getCssClass() {
+      const custom_class_str = this.class_list ? this.class_list.join(' ') : ""
+      return `button ${custom_class_str}`
+    }
   }
 }
 </script>
 
 <template>
-  <div class="button">
+  <div :class="getCssClass">
     <slot></slot>
-    {{ button_text }}
   </div>
 </template>
 
-<style scoped>
+<style>
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   border-radius: 8px;
-  padding: 16px 24px 16px 24px;
-  background-color: var(--blue);
-  color: var(--white);
+  padding: 12px 24px;
   font-size: 14px;
   line-height: 16px;
+  background-color: var(--blue);
+  color: var(--white);
+
+  .svg-icon {
+    margin-right: 12px;
+  }
 }
 </style>

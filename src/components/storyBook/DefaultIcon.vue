@@ -1,37 +1,37 @@
-<script lang="ts">
+<script>
 export default {
   name: "DefaultIcon",
   props: {
-    icon_id: String,
+    size: Number,
     icon_name: String,
-    class_list: Array,
+    icon_color: String
   },
   computed: {
-    getIconId(): string {
-      console.log(this)
-      return this.icon_id ? `id="${this.icon_id}"` : ''
+    getSizePxStr() {
+      return this.size + "px"
     },
-    getIconClass(): string {
-      return `svg-icon ${this.icon_name} ${this.getClassListStr()}`
-    },
-    getUseHref(): string {
-      return `#${this.icon_name}`
-    }
-  },
-  methods: {
-    getClassListStr(): string {
-      return this.class_list.join(' ') ?? ''
+    getViewBoxStr() {
+      return `0 0 ${this.size} ${this.size}`
     }
   }
 }
 </script>
 
 <template>
-  <svg
-      :id="getIconId"
-      :class="getIconClass"
+  <svg xmlns="http://www.w3.org/2000/svg"
+       :width="getSizePxStr"
+       :height="getSizePxStr"
+       :viewBox="getViewBoxStr"
+       :aria-labelledby="icon_name"
+       class="svg-icon"
   >
-    <use :href="getUseHref"></use>
+    <title
+        :id="icon_name"
+        lang="en"
+    >{{icon_name}} icon</title>
+    <g :fill="icon_color">
+        <slot />
+    </g>
   </svg>
 </template>
 

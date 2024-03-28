@@ -1,16 +1,15 @@
 <template>
   <div class="app">
     <default-logo></default-logo>
-    <default-button
-        :button_text="Меню"
-    >
+    <default-button>
       <DefaultIcon
-          :icon_id="icon_id"
+          :size="icon_size"
           :icon_name="icon_name"
-          :class_list="class_list"
+          :icon_color="icon_color"
       >
-
+        <IconBasket></IconBasket>
       </DefaultIcon>
+      Корзина
     </default-button>
     <profile></profile>
     <product></product>
@@ -24,14 +23,15 @@ import Profile from "@/components/main/profile/Profile.vue";
 import Product from "@/components/main/product/Product.vue";
 import Company from "@/components/main/company/Company.vue";
 import DefaultIcon from "@/components/storyBook/DefaultIcon.vue";
+import IconBasket from "@/components/icons/IconBasket.vue";
 
 export default {
-  components: {DefaultIcon, Company, Product, Profile},
+  components: {IconBasket, DefaultIcon, Company, Product, Profile},
   data() {
     return {
-      icon_id: "path_icon_id",
-      icon_name: "icon_name",
-      class_list: ["class_1", "class_2"]
+      icon_name: "basket",
+      icon_color: "#ffffff",
+      icon_size: 24
     }
   }
 }
