@@ -1,0 +1,14 @@
+.svg-icon {
+    --icon-size: var(--size, 24px);
+    --width: var(--icon-width, --icon-size);
+    --height: var(--icon-height, --icon-size);
+    box-sizing: border-box;
+    width: var(--width);
+    height: var(--height);
+    object-fit: cover;
+    object-position: center;
+    fill: currentcolor;
+}
+.svg-icon::before {
+    display: none;
+}

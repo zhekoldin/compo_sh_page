@@ -1,5 +1,5 @@
 <script>
-import "/css/index.css"
+import "/src/css/index.css"
 export default {
   name: "DefaultButton",
   props: {

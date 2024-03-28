@@ -5,7 +5,3 @@
     font-weight: 100;
     src: url("/font/Gotham-Thin.woff2") format('woff2');
 }
-
-.regular {
-    font-family: "Gotham", sans-serif;
-}
